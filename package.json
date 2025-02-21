@@ -4,11 +4,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack -w",
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production",
-    "deploy": "npm run build && gh-pages -d docs"
+    "build": "webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d docs"
   },
-   "homepage": "https://MatheusVenturaNellessen.github.io/generator-password",
+  "homepage": "https://MatheusVenturaNellessen.github.io/generator-password",
   "keywords": [],
   "author": "",
   "license": "ISC",

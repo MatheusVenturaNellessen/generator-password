@@ -1,1 +1,1 @@
-# generator-password
+Documentação pedente.
