@@ -1,13 +1,11 @@
-export default class GeneratePassword {
-    static rand(min = 0, max = 9) {
-        return String(Math.floor(Math.random() * (max - min) + min));
-    }
+import generateChar from './generateChar'
 
+export default class GeneratePassword {
     static addNumber(amount) {
         const password = [];
 
         for(let i = 0; i < amount; i++) {
-            password.push(GeneratePassword.rand());
+            password.push(generateChar(48, 57))
         }
 
         return password.join('');
@@ -18,8 +16,7 @@ export default class GeneratePassword {
             const passwordWithUpperCase = [];
 
             for(let i = 0; i < amount; i++) {
-                const randomUpperCase = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-                passwordWithUpperCase.push (randomUpperCase);
+                passwordWithUpperCase.push(generateChar(65, 90));
             }
 
             return passwordWithUpperCase.join('');
@@ -27,8 +24,8 @@ export default class GeneratePassword {
             const passwordWithUpperCase = Array.from(password); 
     
             for(let i = 0; i < amount; i++) {
-                if(i === 0 || i % 3 === 0) {
-                    passwordWithUpperCase[i] = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                if(i % 3 === 0) {
+                    passwordWithUpperCase[i] = generateChar(65, 90);
                 }
             }
     
@@ -41,8 +38,7 @@ export default class GeneratePassword {
             const passwordWithLowerCase = [];
 
             for(let i = 0; i < amount; i++) {
-                const randomLowerCase = String.fromCharCode(97 + Math.floor(Math.random() * 26));
-                passwordWithLowerCase.push(randomLowerCase);
+                passwordWithLowerCase.push(generateChar(99, 122));
             }
 
             return passwordWithLowerCase.join('');
@@ -50,15 +46,14 @@ export default class GeneratePassword {
             const passwordWithLowerCase = Array.from(password); 
     
             for(let i = 0; i < amount; i++) {
-                if(i === 0 || i % 4 === 0) {
-                    passwordWithLowerCase[i] = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+                if(i % 4 === 0) {
+                    passwordWithLowerCase[i] = generateChar(99, 122);
                 }
             }
     
             return passwordWithLowerCase.join('');
         }
     }
-
 
     static addEspecialChar(password, amount) {
         if(!password) {
@@ -75,7 +70,7 @@ export default class GeneratePassword {
             const specialChars = '.,:;?!+-*/=%@#$&()_-{}[]<>|/^~';
     
             for(let i = 0; i < amount; i++) {
-                if(i === 0 || i % 5 === 0) {
+                if(i % 5 === 0) {
                     passwordWithEspecialChar[i] = specialChars[Math.floor(Math.random() * specialChars.length)];
                 }
             }
