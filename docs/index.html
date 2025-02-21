@@ -15,8 +15,9 @@
             </div>
             <form class="form">
                 <div>
-                    <input type="number" class="number-of-char" id="noc-id">
-                    <label for="noc-id">Quantidade de caracteres</label>
+                    <label for="noc-id">Quantidade de caracteres:</label>
+                    <input type="number" class="number-of-char" id="noc-id" min="8" max="12" placeholder="Entre 8 e 12">
+                    <p class="validation-display"></p>
                 </div>
                 <div>
                     <input type="checkbox" class="input-checkbox" id="n-id">
@@ -36,7 +37,6 @@
                 </div>
                 <div>
                     <button>Gerar Senha</button>
-                    <p class="validation-display"></p>
                 </div>
             </form>
         </section>
